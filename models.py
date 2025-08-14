@@ -1,7 +1,7 @@
 # Pydantic models for data validation
 # Vulnerable implementation for educational purposes
 
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel
 from typing import Optional
 from datetime import datetime
 
@@ -23,7 +23,7 @@ class UserResponse(UserBase):
     created_at: datetime
     
     class Config:
-        from_attributes = True
+        orm_mode = True
 
 class UserLogin(BaseModel):
     username: str
@@ -51,7 +51,7 @@ class TaskResponse(TaskBase):
     updated_at: datetime
     
     class Config:
-        from_attributes = True
+        orm_mode = True
 
 # Authentication Models
 class Token(BaseModel):
